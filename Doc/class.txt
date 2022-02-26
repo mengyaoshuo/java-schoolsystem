@@ -1,0 +1,5 @@
+C001	classOne	teacherZhao	studentZhao,studentQian
+C002	classTwo	teacherQian	studentSun,studentLi
+C003	classThree	teacherSun	studentZhou,studentWu
+C004	classFour	teacherLi	studentZheng,studentWang
+C005	classFive	teacherZhou	studentShen,studentMeng
