@@ -17,9 +17,12 @@ public class Myclass extends Personnel {
         super(name);
     }
 
-    void setId() {
+    public void setId() {
         id = counter++;
     }
+
+    public int getId(){ return this.id; }
+
 
     public List<Personnel> getTeacherList() {
         return teacher;

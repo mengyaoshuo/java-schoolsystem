@@ -1,7 +1,8 @@
 package schoolmanagement.managers;
 
+import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.multimap.AbstractListValuedMap;
 import schoolmanagement.personnels.Personnel;
-import schoolmanagement.personnels.Student;
 import schoolmanagement.personnels.Teacher;
 
 import java.util.ArrayList;
@@ -9,10 +10,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TeacherManager extends Manager {
+public class TeacherManager extends BehaviorControllerManager {
 
-    private Map<Integer, Personnel> teacherMap = new HashMap<>();
-    private List<Personnel> targetTeacherList = new ArrayList<>();
+    private Map<Integer,Personnel> teacherMap;
+    private List<Personnel> targetTeacherList;
+
+    public TeacherManager(){
+        teacherMap = new HashMap<>();
+        targetTeacherList = new ArrayList<>();
+    }
 
     public Map<Integer,Personnel> getMap(){
         return teacherMap;
@@ -22,29 +28,30 @@ public class TeacherManager extends Manager {
         return targetTeacherList;
     }
 
-    public List<Personnel> getListByAttribute(Map<String,String> keyword){
+    public List<Personnel> getListByAttribute(MultiValuedMap<String,String> keyword){
 
         for(String key : keyword.keySet()){
 
             switch (key){
                 case "subject" :
-                    for(Personnel per : getMap().values()){
-                        if(((Teacher)per).getSubject().equals(keyword.get(key))){
-                            targetTeacherList.add(per);
+                    for(String str : keyword.get(key)){
+                        for(Personnel per : getMap().values()){
+                            if(((Teacher)per).getSubject().equals(str)){
+                                targetTeacherList.add(per);
+                            }
                         }
                     }
                     break;
             }
         }
         return targetTeacherList;
-
     }
 
+    protected void createPersonnel(MultiValuedMap<String,String> keyword){
 
-    protected void createPersonnel(String... keyword){
-        Teacher teacherEntry = new Teacher(keyword[0],keyword[1]);
+        Teacher teacherEntry = new Teacher(keyword.get("name").iterator().next(),keyword.get("subject").iterator().next());
         teacherEntry.setId();
-        teacherList.put(teacherEntry);
+        teacherMap.put(teacherEntry.getId(),teacherEntry);
     }
 
 

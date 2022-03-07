@@ -1,12 +1,14 @@
 package schoolmanagement.command;
 
+import org.apache.commons.collections4.MultiValuedMap;
+
 import java.util.Map;
 
 public class Command {
 
     private final Behavior behavior;
     private final Target target;
-    private Map<String,String> keyword;
+    private MultiValuedMap<String,String> keyword;
 
     public Command(Behavior behavior,Target target){
         this.behavior = behavior;
@@ -21,11 +23,11 @@ public class Command {
         return target;
     }
 
-    public Map<String,String> getKeyword(){
+    public MultiValuedMap<String,String> getKeyword(){
         return keyword;
     }
 
-    public void setKeyword(Map<String,String> map){
+    public void setKeyword(MultiValuedMap<String,String> map){
         keyword = map;
     }
 }

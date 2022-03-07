@@ -21,6 +21,8 @@ public class Teacher extends Personnel {
         id = ++counter;
     }
 
+    public int getId(){ return this.id; }
+
     public String getSubject(){
         return this.subject;
     }

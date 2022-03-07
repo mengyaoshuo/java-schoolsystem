@@ -1,7 +1,5 @@
 package schoolmanagement.personnels;
 
-import java.util.Map;
-
 public abstract class Personnel {
 
     protected String name;
@@ -10,11 +8,11 @@ public abstract class Personnel {
         this.name = name;
     }
 
-    abstract void setId();
-
     public String getName(){
         return this.name;
     }
+
+    public abstract int getId();
 
     public abstract String toString();
 }

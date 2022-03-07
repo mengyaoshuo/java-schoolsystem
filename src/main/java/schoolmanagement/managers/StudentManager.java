@@ -1,21 +1,22 @@
 package schoolmanagement.managers;
 
-import schoolmanagement.managers.Manager;
 import schoolmanagement.personnels.Personnel;
 import schoolmanagement.personnels.Student;
-import schoolmanagement.personnels.Teacher;
+import org.apache.commons.collections4.MultiValuedMap;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class StudentManager extends Manager {
+public class StudentManager extends BehaviorControllerManager {
 
-    private Map<Integer,Personnel> studentMap = new HashMap<>();
-    private List<Personnel> targetStudentList = new ArrayList<>();
+    private Map<Integer, Personnel> studentMap;
+    private List<Personnel> targetStudentList;
 
-    public Map<Integer,Personnel> getMap(){
+    public StudentManager(){
+        studentMap = new HashMap<>();
+        targetStudentList = new ArrayList<>();
+    }
+
+    public Map<Integer, Personnel> getMap(){
         return studentMap;
     }
 
@@ -23,21 +24,27 @@ public class StudentManager extends Manager {
         return targetStudentList;
     }
 
-    public List<Personnel> getListByAttribute(String... keywordArr){
-        switch (keywordArr[0]){
-            case "age" :
-                for(Personnel per : getMap().values()){
-                    if(((Student)per).getAge() == (Integer.parseInt(keywordArr[1]))){
-                        targetStudentList.add(per);
+    public List<Personnel> getListByAttribute(MultiValuedMap<String,String> keyword){
+        for(String key : keyword.keySet()){
+
+            switch (key){
+                case "age" :
+                    for(String str : keyword.get(key)){
+                        for (Personnel per : getMap().values()){
+                            if(((Student)per).getAge() == (Integer.parseInt(str))){
+                                targetStudentList.add(per);
+                            }
+                        }
                     }
-                }
-                break;
+                    break;
+            }
         }
         return targetStudentList;
     }
-    protected Personnel createPersonnel(String... keyword){
-        Student studentEntry = new Student(keyword[0],keyword[1]);
+    protected void createPersonnel(MultiValuedMap<String,String> keyword){//想清楚问题 然后google。别人应该也遇到了，所以应该能google解决。
+
+        Student studentEntry = new Student(keyword.get("name").iterator().next(),keyword.get("age").iterator().next());
         studentEntry.setId();
-        return studentEntry;
+        studentMap.put(studentEntry.getId(),studentEntry);
     }
 }

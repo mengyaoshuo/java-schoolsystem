@@ -19,30 +19,30 @@ public class MyFileWriter {
 //        writeToFiles(testPersonnel,per);
 //    }
 
-    public static void writeToFiles(Personnel per){
-            PrintWriter out = null;
-            try{
-                out = new PrintWriter(new FileWriter(getFile(per),true));
-                out.append("\n" + per + "\n");
-            }catch (IOException e){
-                e.printStackTrace();
-            }finally {
-                out.close();
-            }
-    }
-
-    private static File getFile(Personnel m){
-        if(m instanceof Teacher){
-            File log = new File("/Users/yao.meng/Documents/newTeacher.txt");
-            return log;
-        }else if(m instanceof Student){
-            File log = new File("/Users/yao.meng/Documents/newStudent.txt");
-            return log;
-        }else{
-            File log = new File("/Users/yao.meng/Documents/newClass.txt");
-            return log;
-        }
-    }
+//    public static void writeToFiles(Personnel per){
+//            PrintWriter out = null;
+//            try{
+//                out = new PrintWriter(new FileWriter(getFile(per),true));
+//                out.append("\n" + per + "\n");
+//            }catch (IOException e){
+//                e.printStackTrace();
+//            }finally {
+//                out.close();
+//            }
+//    }
+//
+//    private static File getFile(Personnel m){
+//        if(m instanceof Teacher){
+//            File log = new File("/Users/yao.meng/Documents/newTeacher.txt");
+//            return log;
+//        }else if(m instanceof Student){
+//            File log = new File("/Users/yao.meng/Documents/newStudent.txt");
+//            return log;
+//        }else{
+//            File log = new File("/Users/yao.meng/Documents/newClass.txt");
+//            return log;
+//        }
+//    }
 
 //    static void removeItem(List<Personnel> per){
 //        List<String> temp = new ArrayList<>();

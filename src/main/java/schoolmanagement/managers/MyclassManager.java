@@ -1,5 +1,7 @@
 package schoolmanagement.managers;
 
+import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 import schoolmanagement.personnels.Student;
 import schoolmanagement.personnels.Teacher;
 import schoolmanagement.personnels.Myclass;
@@ -10,10 +12,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MyclassManager extends Manager {
+public class MyclassManager extends BehaviorControllerManager {
 
-    private Map<Integer,Personnel> myclassMap = new HashMap<>();
-    public List<Personnel> targetMyclassList = new ArrayList<>();
+    private Map<Integer,Personnel> myclassMap;
+    private List<Personnel> targetMyclassList;
+    private MultiValuedMap<String,String> mapForTeachers;
+    private MultiValuedMap<String,String> mapForStudents;
+
+    public MyclassManager(){
+        myclassMap = new HashMap<>();
+        targetMyclassList = new ArrayList<>();
+        mapForTeachers = new ArrayListValuedHashMap<>();
+        mapForStudents = new ArrayListValuedHashMap<>();
+    }
+
 
     public Map<Integer,Personnel> getMap(){
         return myclassMap;
@@ -24,48 +36,66 @@ public class MyclassManager extends Manager {
     }
 
 
-    public List<Personnel> getListByAttribute(String... keywordArr){
-        switch (keywordArr[0]){
-            case "teacher" :
-                for(Personnel per : getMap().values()){
-                    for(Personnel teacher : ((Myclass)per).getTeacherList()){
-                        if(teacher.equals(keywordArr[1])){
-                            targetMyclassList.add(per);
+    public List<Personnel> getListByAttribute(MultiValuedMap<String,String> keyword){
+
+        for(String key : keyword.keySet()){
+
+            switch (key){
+                case "teacher" :
+                    for(String str : keyword.get(key)){
+                        for(Personnel per : getMap().values()){
+                            for(Personnel perOfTeacher : ((Myclass)per).getTeacherList()){
+                                if(perOfTeacher.toString().equals(str))  {//todo : toString()写法不对，要实现好toString()或者把list改成StringList
+                                    targetMyclassList.add(perOfTeacher);
+                                }
+                            }
                         }
                     }
-                }
-                break;
-            case "student" :
-                for(Personnel per : getMap().values()){
-                    for(Personnel student : ((Myclass)per).getStudentList()){
-                        if(keywordArr[1].contains(student.toString())){
-                            targetMyclassList.add(per);
+                    break;
+                case "student" :
+                    for(String str : keyword.get(key)){
+                        for(Personnel per : getMap().values()){
+                            for(Personnel perOfStudent : ((Myclass)per).getStudentList()){
+                                if(perOfStudent.toString().equals(str))  {//todo : toString()写法不对，要实现好toString()或者把list改成StringList
+                                    targetMyclassList.add(perOfStudent);
+                                }
+                            }
                         }
                     }
-                }
-                break;
+                    break;
+            }
         }
         return targetMyclassList;
-
     }
-
     @Override
-    protected Personnel createPersonnel(String... keyword) {
-        Myclass classEntry = new Myclass(keyword[0]);
-        classEntry.getTeacherList().add(new Teacher(keyword[1]));
-        if(ifHasComma(keyword[2])){
-            String[] temp = keyword[2].split(",");
-            for(String str : temp){
-                classEntry.getStudentList().add(new Student(str));
-            }
-        }else {
-            classEntry.getStudentList().add(new Student(keyword[2]));
+    protected void createPersonnel(MultiValuedMap<String,String> keyword) {//1.class classone teacher wang student li,zhang,meng
+        //search,return,print teacher entries.
+
+        Myclass myclassEntry = new Myclass((keyword.get("name").iterator().next()));
+
+        for(String name : keyword.get("teacher")){
+            mapForTeachers.put("name",name);
+            searchForAddingNewClass(mapForTeachers,new TeacherManager());
+            myclassEntry.getTeacherList().add(new Teacher(name));
         }
-
-        return classEntry;
+        for(String name : keyword.get("student")){
+            mapForStudents.put("name",name);
+            searchForAddingNewClass(mapForStudents,new StudentManager());
+            //create
+            myclassEntry.getStudentList().add(new Teacher(name));
+            //link
+        }
     }
 
-    private boolean ifHasComma(String temp){
-        return temp.contains(",");
+    private void searchForAddingNewClass(MultiValuedMap<String,String> map,TeacherManager m){
+        m.search(map);
+        new BehaviorResultDisplayManager().interactForDecideIfLink();
     }
+
+    private void searchForAddingNewClass(MultiValuedMap<String,String> map,StudentManager m){
+        m.search(map);
+        new BehaviorResultDisplayManager().interactForDecideIfLink();
+    }
+
+
 }

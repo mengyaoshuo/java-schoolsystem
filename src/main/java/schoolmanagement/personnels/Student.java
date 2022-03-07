@@ -21,6 +21,9 @@ public class Student extends Personnel {
     public void setId(){
         id = counter++;
     }
+
+    public int getId(){ return this.id; }
+
     public int getAge(){
         return this.age;
     }
