@@ -16,14 +16,18 @@ public class MyFileReader {
 //文件夹.listFiles()生成各文件file对象的数组。
 //todo：把文件中每个entry new成command，conductAdd to add them in responding map.
 
+
     public static void createFileDirectory(final File[] filesList){
         for (File file : filesList) {
-            if (file.toString().contains("teacher")) {
-                readFile(file, new TeacherManager());
-            } else if (file.toString().contains("student")) {
-                readFile(file, new StudentManager());
-            } else if (file.toString().contains("class")) {
-                readFile(file, new MyclassManager());
+            try{
+                Stream<String> stream = Files.lines(Paths.get(file.toString()));
+                stream.forEach((k) ->{
+
+                //1.把entries处理成输入模式。
+                //2.调用main里的方法。
+            });
+            }catch(IOException e){
+                e.printStackTrace();
             }
         }
     }
@@ -31,15 +35,6 @@ public class MyFileReader {
 
     public static void readFile(File file, BehaviorControllerManager m){
 
-        try{
-            Stream<String> stream = Files.lines(Paths.get(file.toString()));
-            stream.forEach((k) ->{
-                m.
-                //1.把entries处理成输入模式。
-                //2.调用main里的方法。
-            });
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+
     }
 }

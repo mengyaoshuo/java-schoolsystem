@@ -1,0 +1,34 @@
+﻿{
+  "classes" : [
+      {
+        "ID":"C001",
+        "name":"classOne",
+        "teacher":"teacherZhao",
+        "student":[ "studentZhao", "studentQian"]
+      },
+      {
+        "ID":"C002",
+        "name":"classTwo",
+        "teacher":"teacherQian",
+        "student":[ "studentSun", "studentLi"]
+      },
+      {
+        "ID":"C003",
+        "name":"classThree",
+        "teacher":"teacherSun",
+        "student":[ "studentZhou", "studentWu"]
+      }
+      {
+        "ID":"C004",
+        "name":"classFour",
+        "teacher":"teacherLi",
+        "student":[ "studentZheng", "studentWang"]
+      }
+      {
+        "ID":"C005",
+        "name":"classFive",
+        "teacher":"teacherZhou",
+        "student":[ "studentShen", "studentMeng"]
+      }
+  ]
+}

@@ -41,6 +41,8 @@ public class KeywordHandler {
                     mapOfKeyword.put(keywordArr[i],keywordArr[i+1]);
                 }
 
+            }else if(){//for entries read from files
+
             }else {
                 mapOfKeyword = null;
             }

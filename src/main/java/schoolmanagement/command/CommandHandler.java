@@ -1,9 +1,11 @@
 package schoolmanagement.command;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 
 public class CommandHandler {
@@ -48,6 +50,15 @@ public class CommandHandler {
             result = m_2.group();
         }
         return result;
+    }
+
+    public Command parseCommandFromFile(Stream k, File file){
+
+        Behavior behavior =  Behavior.getByIndex(1);
+        Target target = Target.getByDescription(findByFileName(file));
+        Command command = new Command(behavior,target);
+        command.setKeyword(this.keywordHandler.parseKeyword(k.toString()));
+        return command;
     }
 
 
