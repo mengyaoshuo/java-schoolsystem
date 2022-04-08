@@ -19,13 +19,17 @@ public class MyclassManager extends BehaviorControllerManager {
     private MultiValuedMap<String,String> mapForTeachers;
     private MultiValuedMap<String,String> mapForStudents;
 
-    public MyclassManager(){
+    private static MyclassManager myclassManager = new MyclassManager();
+    private MyclassManager(){
         myclassMap = new HashMap<>();
         targetMyclassList = new ArrayList<>();
         mapForTeachers = new ArrayListValuedHashMap<>();
         mapForStudents = new ArrayListValuedHashMap<>();
     }
 
+    public static MyclassManager getInstance(){
+        return myclassManager;
+    }
 
     public Map<Integer,Personnel> getMap(){
         return myclassMap;

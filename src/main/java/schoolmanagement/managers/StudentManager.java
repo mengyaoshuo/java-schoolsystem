@@ -11,10 +11,17 @@ public class StudentManager extends BehaviorControllerManager {
     private Map<Integer, Personnel> studentMap;
     private List<Personnel> targetStudentList;
 
-    public StudentManager(){
+    private static StudentManager studentManager = new StudentManager();
+
+    private StudentManager(){
         studentMap = new HashMap<>();
         targetStudentList = new ArrayList<>();
     }
+
+    public static StudentManager getInstance(){
+        return studentManager;
+    }
+
 
     public Map<Integer, Personnel> getMap(){
         return studentMap;

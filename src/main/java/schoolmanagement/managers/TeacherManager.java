@@ -15,9 +15,15 @@ public class TeacherManager extends BehaviorControllerManager {
     private Map<Integer,Personnel> teacherMap;
     private List<Personnel> targetTeacherList;
 
-    public TeacherManager(){
+    private static TeacherManager teacherManager = new TeacherManager();
+
+    private TeacherManager(){
         teacherMap = new HashMap<>();
         targetTeacherList = new ArrayList<>();
+    }
+
+    public static TeacherManager getInstance(){
+        return teacherManager;
     }
 
     public Map<Integer,Personnel> getMap(){

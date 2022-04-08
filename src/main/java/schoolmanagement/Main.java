@@ -4,17 +4,16 @@ import schoolmanagement.command.*;
 import schoolmanagement.managers.*;// need to import the package to use only public functions in it.
 
 import java.io.File;
-import java.util.*;
 
 import static schoolmanagement.managers.BehaviorControllerManager.managers;
 
 public class Main {
     //todo:how to use relative path?
-    static final File directoryPath = new File("/Users/yao.meng/Projects/schoolsystem/Doc");
+    static final File directory = new File("/Users/yao.meng/Projects/schoolsystem/Doc");
 
     public static void main(String[] args) {
         //todo:add a function to add entries in files to corresponding maps.
-        MyFileReader.createFileDirectory(directoryPath.listFiles());
+        MyFileReader.readAsMap(directory.listFiles());
 
         System.out.println("Hello, and welcome!" +
                 "Please confirm the manual below to make full use of this super functional \"Princess Meng\" SchoolManament System.\n");
@@ -25,13 +24,9 @@ public class Main {
 
     private static void fillInMapOfManagers () {
 
-        BehaviorControllerManager teacherM = new TeacherManager();
-        BehaviorControllerManager studentM = new StudentManager();
-        BehaviorControllerManager myclassM = new MyclassManager();
-
-        managers.put(Target.TEACHER, teacherM);
-        managers.put(Target.STUDENT, studentM);
-        managers.put(Target.CLASS, myclassM);
+        managers.put(Target.TEACHER, TeacherManager.getInstance());
+        managers.put(Target.STUDENT, StudentManager.getInstance());
+        managers.put(Target.CLASS, MyclassManager.getInstance());
     }
 
     public static void preConduct (String input) {
