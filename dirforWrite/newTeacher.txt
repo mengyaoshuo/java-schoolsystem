@@ -1,0 +1,245 @@
+
+
+Id:0	Name:teacherZhao	Subject:maths
+
+Id:0	Name:teacherQian	Subject:Chinese
+
+Id:0	Name:teacherSun	Subject:Technology
+
+Id:0	Name:teacherLi	Subject:English
+
+Id:0	Name:teacherZhou	Subject:History
+
+Id:0	Name:teacherZhao	Subject:maths
+
+Id:0	Name:teacherQian	Subject:Chinese
+
+Id:0	Name:teacherSun	Subject:Technology
+
+Id:0	Name:teacherLi	Subject:English
+
+Id:0	Name:teacherZhou	Subject:History
+
+Id:0	Name:teacherZhao	Subject:maths
+
+Id:0	Name:teacherQian	Subject:Chinese
+
+Id:0	Name:teacherSun	Subject:Technology
+
+Id:0	Name:teacherLi	Subject:English
+
+Id:0	Name:teacherZhou	Subject:History
+
+Id:0	Name:wang	Subject:maths
+
+Id:0	Name:teacherZhao	Subject:maths
+
+Id:0	Name:teacherQian	Subject:Chinese
+
+Id:0	Name:teacherSun	Subject:Technology
+
+Id:0	Name:teacherLi	Subject:English
+
+Id:0	Name:teacherZhou	Subject:History
+
+Id:0	Name:teacherZhang	Subject:li
+
+Id:1	Name:teacherZhao	Subject:maths
+
+Id:1	Name:teacherQian	Subject:Chinese
+
+Id:1	Name:teacherSun	Subject:Technology
+
+Id:1	Name:teacherLi	Subject:English
+
+Id:1	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:0	Name:teacherZhao	Subject:maths
+
+Id:0	Name:teacherQian	Subject:Chinese
+
+Id:0	Name:teacherSun	Subject:Technology
+
+Id:0	Name:teacherLi	Subject:English
+
+Id:0	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:1	Name:teacherZhao	Subject:maths
+
+Id:3	Name:teacherQian	Subject:Chinese
+
+Id:5	Name:teacherSun	Subject:Technology
+
+Id:7	Name:teacherLi	Subject:English
+
+Id:9	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:12	Name:teacherSun	Subject:maths
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:12	Name:teacherSun	Subject:wang
+
+Id:1	Name:teacherZhao	Subject:maths
+
+Id:1	Name:teacherQian	Subject:Chinese
+
+Id:1	Name:teacherSun	Subject:Technology
+
+Id:1	Name:teacherLi	Subject:English
+
+Id:1	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:12	Name:teacherZhao	Subject:chinese
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:2	Name:teacherZhao	Subject:maths
+
+Id:4	Name:teacherQian	Subject:Chinese
+
+Id:6	Name:teacherSun	Subject:Technology
+
+Id:8	Name:teacherLi	Subject:English
+
+Id:10	Name:teacherZhou	Subject:History
+
+Id:12	Name:wang	Subject:maths
