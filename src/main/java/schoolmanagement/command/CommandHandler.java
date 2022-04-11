@@ -52,14 +52,14 @@ public class CommandHandler {
         return result;
     }
 
-    public Command parseCommandFromFile(Stream k, File file){
-
-        Behavior behavior =  Behavior.getByIndex(1);
-        Target target = Target.getByDescription(findByFileName(file));
-        Command command = new Command(behavior,target);
-        command.setKeyword(this.keywordHandler.parseKeyword(k.toString()));
-        return command;
-    }
+//    public Command parseCommandFromFile(Stream k, File file){
+//
+//        Behavior behavior =  Behavior.getByIndex(1);
+//        Target target = Target.getByDescription(findByFileName(file));
+//        Command command = new Command(behavior,target);
+//        command.setKeyword(this.keywordHandler.parseKeyword(k.toString()));
+//        return command;
+//    }
 
 
 

@@ -18,6 +18,10 @@ public class KeywordHandler {
         mapOfKeyword = new ArrayListValuedHashMap<>();
     }
 
+    public MultiValuedMap<String,String> getMapOfKeyword(){
+        return mapOfKeyword;
+    }
+
     //in this parseKeyword function, I standardize keyWord as Map where entries user wanted to extract are defined. So implementation of all the behaviors unified.
     public MultiValuedMap<String,String> parseKeyword(String commandText){
 
@@ -40,9 +44,6 @@ public class KeywordHandler {
                 for(int i = 0; i < keywordArr.length-1; i+=2){
                     mapOfKeyword.put(keywordArr[i],keywordArr[i+1]);
                 }
-
-            }else if(){//for entries read from files
-
             }else {
                 mapOfKeyword = null;
             }

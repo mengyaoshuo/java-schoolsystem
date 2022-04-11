@@ -79,12 +79,12 @@ public class MyclassManager extends BehaviorControllerManager {
 
         for(String name : keyword.get("teacher")){
             mapForTeachers.put("name",name);
-            searchForAddingNewClass(mapForTeachers,new TeacherManager());
+            searchForAddingNewClass(mapForTeachers,TeacherManager.getInstance());
             myclassEntry.getTeacherList().add(new Teacher(name));
         }
         for(String name : keyword.get("student")){
             mapForStudents.put("name",name);
-            searchForAddingNewClass(mapForStudents,new StudentManager());
+            searchForAddingNewClass(mapForStudents,StudentManager.getInstance());
             //create
             myclassEntry.getStudentList().add(new Teacher(name));
             //link

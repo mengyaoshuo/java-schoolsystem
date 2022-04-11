@@ -1,54 +1,67 @@
 package schoolmanagement;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import schoolmanagement.managers.BehaviorControllerManager;
-import schoolmanagement.personnels.Personnel;
+import org.apache.commons.collections4.MultiValuedMap;
+import schoolmanagement.command.KeywordHandler;
+import schoolmanagement.command.Target;
 
-import java.io.File;
+import java.io.File;//java.io package下的File类。
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
 import java.util.stream.Stream;
+
+import static schoolmanagement.command.Behavior.ADD;
+import static schoolmanagement.managers.BehaviorControllerManager.managers;
 
 public class MyFileReader {
 //把文件读到内存就是把filepath包装成file对象。
 //文件夹.listFiles()生成各文件file对象的数组。
 //todo：把文件中每个entry new成command，conductAdd to add them in responding map.
 
-    private MyFileReader() {};
+    private static MyFileReader myFileReader = new MyFileReader();
 
-    public static void readAsMap(final File[] filesList){
+    public static MyFileReader getMyFileReader(){
+        return myFileReader;
+    }
+
+    public void readFile(final File[] filesList){
 
         for (File file : filesList) {
             StringBuilder sb = new StringBuilder();
             try{
                 Stream<String> stream = Files.lines(Paths.get(file.toString()));
                 stream.forEach((k) ->{
-                    sb.append(k);
+                    sb.append(k); //我不会写两个：：的lambda方程式。
+
             });
+                parseStringToJson(sb.toString());
             }catch(IOException e){
                 e.printStackTrace();
             }
-            JSONObject jsonObject = JSONObject.parseObject(sb.toString());
-            parseMapToSchoolKeyConcept(jsonObject);
         }
     }
 
-    //new 对象并加入map？
-    public static void parseMapToSchoolKeyConcept(JSONObject json){
-
-        for(int i = 0;i < json.getJSONArray("teachers").size();i++){
-            JSONObject jsonObject = JSONObject.parseObject((String) json.getJSONArray("teachers").get(i));
-
-        }
+    private void parseStringToJson(String str){
+        JSONObject jsonObject = JSONObject.parseObject(str);
+        String key = String.valueOf(jsonObject.keySet().iterator());
+        addInitially(jsonObject,key);
     }
 
+    private MultiValuedMap<String,String> parseJsonToMap(JSONObject json, String key){
+        KeywordHandler temp = new KeywordHandler();
+        for(int i = 0;i < json.getJSONArray(key).size();i++){
+            JSONObject jsonObject = JSONObject.parseObject((String) json.getJSONArray(key).get(i));
+            for(Iterator it = jsonObject.keySet().iterator(); it.hasNext();){
+                temp.getMapOfKeyword().put((String) it.next(),jsonObject.getString((String) it.next()));
+            }
+        }
+        return temp.getMapOfKeyword();
+    }
 
-    public static void readFile(File file, BehaviorControllerManager m){
-
+    public void addInitially(JSONObject json,String key){
+        managers.get(Target.getByDescription(key)).conduct(ADD,parseJsonToMap(json,key));
 
     }
 }

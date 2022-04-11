@@ -12,7 +12,7 @@ public enum Target {
         description = des;
     }
 
-    static Target getByDescription(String des){
+    public static Target getByDescription(String des){
         if(des == null){
             return null;
         }

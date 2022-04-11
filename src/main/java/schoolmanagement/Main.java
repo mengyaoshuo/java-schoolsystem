@@ -12,8 +12,8 @@ public class Main {
     static final File directory = new File("/Users/yao.meng/Projects/schoolsystem/Doc");
 
     public static void main(String[] args) {
-        //todo:add a function to add entries in files to corresponding maps.
-        MyFileReader.readAsMap(directory.listFiles());
+
+        MyFileReader.getMyFileReader().readFile(directory.listFiles());
 
         System.out.println("Hello, and welcome!" +
                 "Please confirm the manual below to make full use of this super functional \"Princess Meng\" SchoolManament System.\n");
